@@ -1,6 +1,6 @@
 Chatting Application
 =====================
-![Assignment Checks](https://s///github.com/IT3049C-Summer20/4-chatting-application-ibukundanny/workflows/Assignment%20Checks/badge.svg)
+![Assignment Checks](https://s///github.com/ibukundanny/chatting-app/workflows/Assignment%20Checks/badge.svg)
 
 Instructions to this assignment can be found [here](#).
 
