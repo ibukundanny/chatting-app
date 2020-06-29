@@ -16,6 +16,10 @@
     <body>
         <header>
             <div class="jumbotron">
+                <br>
+                <blockquote> address:  <p id="demo"></p></blockquote>
+                <br>
+                <blockquote> weather:  <p id="weather"></p></blockquote>
                 <h1 class="display-4">IT-3049C Chat</h1>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -23,11 +27,54 @@
                             <i class="fas fa-user"></i>
                         </span>
                     </div>
+
                     <input id="myName" Value="Ibukun Daniel" type="text" class="form-control" placeholder="Name">
+
                 </div>
             </div>
         </header>
+        <script>
 
+
+function initMap() {
+  if ('geolocation' in navigator)
+          {
+            navigator.geolocation.getCurrentPosition(position =>
+            {
+              // console.log(position.coords);
+              const {latitude: lat, longitude: lng } = position.coords;
+              console.log({lat, lng});
+              var geocoder = new google.maps.Geocoder;
+              geocoder.geocode({'location': {lat, lng}}, function(results, status) {
+                // console.log(results);
+                const addy = results[0].formatted_address;
+                const weatherQuery = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=30bbe6cf47425eddff89517ba1275537`
+                fetch(weatherQuery).then((response) => {
+                return response.json()
+
+                }).then(val => {
+                  console.log(val);
+
+                })
+                console.log(addy);
+                document.getElementById("demo").innerHTML=addy;
+                document.getElementById("weather").innerHTML=weatherQuery;
+              }
+              )
+
+              console.log(``)
+            });
+           } else{
+            console.log('geolocation not available');
+          }
+
+}
+
+
+
+
+
+        </script>
         <div id="chat">
             <div class="mine messages">
                 <div class="message">
@@ -42,7 +89,7 @@
                     Someone 2:59PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     You there?
@@ -51,7 +98,7 @@
                     Someone else 3:00PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     Hello, how's it going? 😀
@@ -60,13 +107,13 @@
                     Someone else2 3:02PM
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     Great thanks!
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     How about you?
@@ -85,7 +132,7 @@
                     Someone 2:59PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     You there?
@@ -94,7 +141,7 @@
                     Someone else 3:00PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     Hello, how's it going? 😀
@@ -103,13 +150,13 @@
                     Someone else2 3:02PM
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     Great thanks!
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     How about you?
@@ -128,7 +175,7 @@
                     Someone 2:59PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     You there?
@@ -137,7 +184,7 @@
                     Someone else 3:00PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     Hello, how's it going? 😀
@@ -146,13 +193,13 @@
                     Someone else2 3:02PM
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     Great thanks!
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     How about you?
@@ -171,7 +218,7 @@
                     Someone 2:59PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     You there?
@@ -180,7 +227,7 @@
                     Someone else 3:00PM
                 </div>
             </div>
-            
+
             <div class="yours messages">
                 <div class="message">
                     Hello, how's it going? 😀
@@ -189,20 +236,20 @@
                     Someone else2 3:02PM
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     Great thanks!
                 </div>
             </div>
-            
+
             <div class="mine messages">
                 <div class="message">
                     How about you?
                 </div>
             </div>
         </div>
-        
+
         <footer>
             <div id="chatbar" class="input-group mb-3">
                 <input
@@ -220,5 +267,8 @@
         </footer>
         <!-- Our own Scripts -->
         <script src="resources/js/index.js"></script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgK-IAxX9wo0Kx5JMuDH6ckjs09vNJCmk&callback=initMap">
+        </script>
     </body>
 </html>

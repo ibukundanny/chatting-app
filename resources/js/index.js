@@ -28,7 +28,7 @@ const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
 
 function fetchMessages() {
   return fetch(serverURL)
-    .then( response => response.json());
+    .then(response => response.json());
 }
 
 function formatMessage(message, myName) {
@@ -61,7 +61,7 @@ function formatMessage(message, myName) {
 }
 
 
-function sendMessages (username, text) {
+function sendMessages(username, text) {
   const newMessage = {
     sender: username,
     text: text,
@@ -78,11 +78,11 @@ function sendMessages (username, text) {
 }
 
 
-sendButton.addEventListener(`click`, function(sendButtonClickEvent) {
+sendButton.addEventListener(`click`, function (sendButtonClickEvent) {
   sendButtonClickEvent.preventDefault();
   const sender = nameInput.value;
   const message = myMessage.value;
 
-  sendMessages(sender,message);
+  sendMessages(sender, message);
   myMessage.value = ``;
 });
