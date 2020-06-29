@@ -1,274 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>IT3049 Chat</title>
-        <!-- Bootstrap + JQuery + FontAwesome -->
-        <link rel="stylesheet" href="resources/vendor/bootstrap.min.css" />
-        <script src="resources/vendor/jquery-3.5.1.slim.min.js"></script>
-        <script src="resources/vendor/popper.min.js"></script>
-        <script src="resources/vendor/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="resources/vendor/fontawesome-free/css/all.min.css" />
-        <link rel="stylesheet" href="resources/css/styles.css" />
-    </head>
 
-    <body>
-        <header>
-            <div class="jumbotron">
-                <br>
-                <blockquote> address:  <p id="demo"></p></blockquote>
-                <br>
-                <blockquote> weather:  <p id="weather"></p></blockquote>
-                <h1 class="display-4">IT-3049C Chat</h1>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fas fa-user"></i>
-                        </span>
-                    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT3049 Chat</title>
+  <!-- Bootstrap + JQuery + FontAwesome -->
+  <link rel="stylesheet" href="resources/vendor/bootstrap.min.css" />
+  <script src="resources/vendor/jquery-3.5.1.slim.min.js"></script>
+  <script src="resources/vendor/popper.min.js"></script>
+  <script src="resources/vendor/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="resources/vendor/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="resources/css/styles.css" />
+</head>
 
-                    <input id="myName" Value="Ibukun Daniel" type="text" class="form-control" placeholder="Name">
-
-                </div>
-            </div>
-        </header>
-        <script>
-
-
-function initMap() {
-  if ('geolocation' in navigator)
-          {
-            navigator.geolocation.getCurrentPosition(position =>
-            {
-              // console.log(position.coords);
-              const {latitude: lat, longitude: lng } = position.coords;
-              console.log({lat, lng});
-              var geocoder = new google.maps.Geocoder;
-              geocoder.geocode({'location': {lat, lng}}, function(results, status) {
-                // console.log(results);
-                const addy = results[0].formatted_address;
-                const weatherQuery = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=30bbe6cf47425eddff89517ba1275537`
-                fetch(weatherQuery).then((response) => {
-                return response.json()
-
-                }).then(val => {
-                  console.log(val);
-
-                })
-                console.log(addy);
-                document.getElementById("demo").innerHTML=addy;
-                document.getElementById("weather").innerHTML=weatherQuery;
-              }
-              )
-
-              console.log(``)
-            });
-           } else{
-            console.log('geolocation not available');
-          }
-
-}
-
-
-
-
-
-        </script>
-        <div id="chat">
-            <div class="mine messages">
-                <div class="message">
-                    Dude
-                </div>
-            </div>
-            <div class="yours messages">
-                <div class="message">
-                    Hey!
-                </div>
-                <div class="sender-info">
-                    Someone 2:59PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    You there?
-                </div>
-                <div class="sender-info">
-                    Someone else 3:00PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    Hello, how's it going? 😀
-                </div>
-                <div class="sender-info">
-                    Someone else2 3:02PM
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    Great thanks!
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    How about you?
-                </div>
-            </div>
-            <div class="mine messages">
-                <div class="message">
-                    Dude
-                </div>
-            </div>
-            <div class="yours messages">
-                <div class="message">
-                    Hey!
-                </div>
-                <div class="sender-info">
-                    Someone 2:59PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    You there?
-                </div>
-                <div class="sender-info">
-                    Someone else 3:00PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    Hello, how's it going? 😀
-                </div>
-                <div class="sender-info">
-                    Someone else2 3:02PM
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    Great thanks!
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    How about you?
-                </div>
-            </div>
-            <div class="mine messages">
-                <div class="message">
-                    Dude
-                </div>
-            </div>
-            <div class="yours messages">
-                <div class="message">
-                    Hey!
-                </div>
-                <div class="sender-info">
-                    Someone 2:59PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    You there?
-                </div>
-                <div class="sender-info">
-                    Someone else 3:00PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    Hello, how's it going? 😀
-                </div>
-                <div class="sender-info">
-                    Someone else2 3:02PM
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    Great thanks!
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    How about you?
-                </div>
-            </div>
-            <div class="mine messages">
-                <div class="message">
-                    Dude
-                </div>
-            </div>
-            <div class="yours messages">
-                <div class="message">
-                    Hey!
-                </div>
-                <div class="sender-info">
-                    Someone 2:59PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    You there?
-                </div>
-                <div class="sender-info">
-                    Someone else 3:00PM
-                </div>
-            </div>
-
-            <div class="yours messages">
-                <div class="message">
-                    Hello, how's it going? 😀
-                </div>
-                <div class="sender-info">
-                    Someone else2 3:02PM
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    Great thanks!
-                </div>
-            </div>
-
-            <div class="mine messages">
-                <div class="message">
-                    How about you?
-                </div>
-            </div>
+<body>
+  <header>
+    <div class="jumbotron">
+      <br>
+      <blockquote> address: <p id="demo"></p>
+      </blockquote>
+      <br>
+      <blockquote> weather: <p id="weathery"></p>
+      </blockquote>
+      <h1 class="display-4">IT-3049C Chat</h1>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fas fa-user"></i>
+          </span>
         </div>
 
-        <footer>
-            <div id="chatbar" class="input-group mb-3">
-                <input
-                    type="text"
-                    id="myMessage"
-                    class="form-control"
-                    placeholder="Type a message ...">
-                <div class="input-group-append">
-                    <button
-                        class="btn btn-outline-primary"
-                        id="sendButton"
-                        type="button">Send</button>
-                </div>
-            </div>
-        </footer>
-        <!-- Our own Scripts -->
-        <script src="resources/js/index.js"></script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgK-IAxX9wo0Kx5JMuDH6ckjs09vNJCmk&callback=initMap">
-        </script>
-    </body>
+        <input id="myName" Value="Ibukun Daniel" type="text" class="form-control" placeholder="Name">
+
+      </div>
+    </div>
+  </header>
+  <script>
+
+
+    function initMap() {
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(position => {
+          // console.log(position.coords);
+          const { latitude: lat, longitude: lng } = position.coords;
+          console.log({ lat, lng });
+          var geocoder = new google.maps.Geocoder;
+          geocoder.geocode({ 'location': { lat, lng } }, function (results, status) {
+            // console.log(results);
+            const addy = results[0].formatted_address;
+            const weatherQuery = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=30bbe6cf47425eddff89517ba1275537`
+            fetch(weatherQuery).then((response) => {
+              return response.json()
+
+            }).then(val => {
+              console.log(val);
+
+              const {temp} = val.main;
+
+              document.getElementById("weathery").innerHTML = `${Math.floor(temp - 273)} C`;
+            })
+            console.log(addy);
+            document.getElementById("demo").innerHTML = addy;
+          }
+          )
+
+          console.log(``)
+        });
+      } else {
+        console.log('geolocation not available');
+      }
+
+    }
+
+
+
+
+
+  </script>
+  <div id="chat">
+    <div class="mine messages">
+      <div class="message">
+        Dude
+      </div>
+    </div>
+    <div class="yours messages">
+      <div class="message">
+        Hey!
+      </div>
+      <div class="sender-info">
+        Someone 2:59PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        You there?
+      </div>
+      <div class="sender-info">
+        Someone else 3:00PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        Hello, how's it going? 😀
+      </div>
+      <div class="sender-info">
+        Someone else2 3:02PM
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        Great thanks!
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        How about you?
+      </div>
+    </div>
+    <div class="mine messages">
+      <div class="message">
+        Dude
+      </div>
+    </div>
+    <div class="yours messages">
+      <div class="message">
+        Hey!
+      </div>
+      <div class="sender-info">
+        Someone 2:59PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        You there?
+      </div>
+      <div class="sender-info">
+        Someone else 3:00PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        Hello, how's it going? 😀
+      </div>
+      <div class="sender-info">
+        Someone else2 3:02PM
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        Great thanks!
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        How about you?
+      </div>
+    </div>
+    <div class="mine messages">
+      <div class="message">
+        Dude
+      </div>
+    </div>
+    <div class="yours messages">
+      <div class="message">
+        Hey!
+      </div>
+      <div class="sender-info">
+        Someone 2:59PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        You there?
+      </div>
+      <div class="sender-info">
+        Someone else 3:00PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        Hello, how's it going? 😀
+      </div>
+      <div class="sender-info">
+        Someone else2 3:02PM
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        Great thanks!
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        How about you?
+      </div>
+    </div>
+    <div class="mine messages">
+      <div class="message">
+        Dude
+      </div>
+    </div>
+    <div class="yours messages">
+      <div class="message">
+        Hey!
+      </div>
+      <div class="sender-info">
+        Someone 2:59PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        You there?
+      </div>
+      <div class="sender-info">
+        Someone else 3:00PM
+      </div>
+    </div>
+
+    <div class="yours messages">
+      <div class="message">
+        Hello, how's it going? 😀
+      </div>
+      <div class="sender-info">
+        Someone else2 3:02PM
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        Great thanks!
+      </div>
+    </div>
+
+    <div class="mine messages">
+      <div class="message">
+        How about you?
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div id="chatbar" class="input-group mb-3">
+      <input type="text" id="myMessage" class="form-control" placeholder="Type a message ...">
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" id="sendButton" type="button">Send</button>
+      </div>
+    </div>
+  </footer>
+  <!-- Our own Scripts -->
+  <script src="resources/js/index.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgK-IAxX9wo0Kx5JMuDH6ckjs09vNJCmk&callback=initMap">
+    </script>
+</body>
+
 </html>
